@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#e8e1d3" />
+  <title>TALA — Architecture + Landscape</title>
+  <meta name="description" content="TALA is an architecture and landscape practice working with climate, craft and the long horizon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#e8e1d3; --paper-2:#ded4c2; --ink:#242622; --muted:#69675c;
+      --ochre:#bb6b3b; --line:rgba(36,38,34,.22); --white:#f6f2ea;
+      --serif:'Newsreader', Georgia, serif; --sans:'Manrope', Arial, sans-serif; --mono:'DM Mono', monospace;
+      --ease:cubic-bezier(.23,1,.32,1);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;overflow-x:hidden}
+    a{color:inherit;text-decoration:none} button{font:inherit;color:inherit} img{display:block;width:100%;object-fit:cover}
+    .progress{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--ochre);transform-origin:left;transform:scaleX(0);z-index:20}
+    .site-header{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:24px 4.5vw;mix-blend-mode:multiply}
+    .brand{font-size:17px;font-weight:700;letter-spacing:.22em}.brand span{font-family:var(--serif);font-size:13px;font-weight:400;letter-spacing:.04em;margin-left:9px}
+    .nav{display:flex;align-items:center;gap:30px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}.nav a{position:relative}.nav a:after{content:'';position:absolute;left:0;bottom:-5px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .25s var(--ease)}.nav a:hover:after{transform:scaleX(1);transform-origin:left}
+    .menu{display:none;border:0;background:none;cursor:pointer;font-family:var(--mono);font-size:11px;text-transform:uppercase}
+    .hero{min-height:100vh;padding:150px 4.5vw 55px;display:grid;grid-template-columns:1.05fr .95fr;gap:6vw;align-items:center;position:relative}
+    .hero-copy{position:relative;z-index:2;max-width:720px}.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--ochre);margin-bottom:28px}.hero h1{font:400 clamp(4.5rem,10.8vw,10.5rem)/.78 var(--serif);letter-spacing:-.075em;margin:0 0 38px;max-width:740px}.hero h1 em{font-style:italic;color:var(--ochre)}.hero-intro{max-width:330px;margin-left:13%;font-size:14px;color:var(--muted)}
+    .hero-photo{height:min(73vh,720px);position:relative}.hero-photo:before{content:'FIELD NOTE 03 / 08';position:absolute;z-index:2;top:17px;right:-2px;font:10px var(--mono);letter-spacing:.12em;writing-mode:vertical-rl;color:var(--white)}.hero-photo img{height:100%;filter:saturate(.78) contrast(.96)}.hero-photo .caption{position:absolute;bottom:-29px;left:0;font:10px var(--mono);color:var(--muted);letter-spacing:.06em}
+    .mark{position:absolute;right:0;bottom:7%;width:180px;height:180px;border:1px solid var(--ochre);border-radius:50%;display:grid;place-items:center;color:var(--ochre);font:10px var(--mono);text-align:center;letter-spacing:.12em;transform:rotate(12deg)}.mark:before{content:'✳';font-size:28px;position:absolute;top:23px}.mark span{padding-top:50px}
+    .rule{border:0;border-top:1px solid var(--line);margin:0 4.5vw}.section{padding:150px 4.5vw}.section-head{display:grid;grid-template-columns:1fr 2fr;gap:6vw;margin-bottom:72px}.kicker{font:10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--ochre)}.section-title{font:400 clamp(2.8rem,5.4vw,6.2rem)/.93 var(--serif);letter-spacing:-.055em;margin:0;max-width:800px}.section-title em{font-style:italic}.manifesto{display:grid;grid-template-columns:1fr 1.2fr;gap:8vw;align-items:end}.manifesto-copy{font:400 clamp(2.1rem,4vw,4.4rem)/1.02 var(--serif);letter-spacing:-.045em}.manifesto-copy span{color:var(--ochre)}.manifesto-note{max-width:300px;color:var(--muted);font-size:13px;padding-bottom:8px}.manifesto-note strong{color:var(--ink);font-weight:600}
+    .projects{background:var(--ink);color:var(--white);padding-bottom:175px}.projects .kicker{color:#d88a59}.projects .section-title{color:var(--white)}.project-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:8vw 5vw;align-items:start}.project-card{position:relative}.project-card:nth-child(2){margin-top:180px}.project-card:nth-child(3){margin-top:-30px}.project-card:nth-child(4){margin-top:120px}.project-image{overflow:hidden;background:#333}.project-image img{aspect-ratio:4/5;transition:transform .8s var(--ease),filter .5s}.project-card:nth-child(2) img{aspect-ratio:5/4}.project-card:hover img{transform:scale(1.035);filter:saturate(1.1)}.project-meta{display:flex;justify-content:space-between;gap:15px;border-top:1px solid rgba(246,242,234,.3);padding-top:13px;margin-top:14px;font-size:12px}.project-meta span:last-child{font:10px var(--mono);color:#b8b3a8;letter-spacing:.08em;text-transform:uppercase}.project-card:nth-child(1){grid-column:1}.project-card:nth-child(2){grid-column:2}.project-card:nth-child(3){grid-column:1}.project-card:nth-child(4){grid-column:2}
+    .approach{display:grid;grid-template-columns:1fr 2fr;gap:6vw}.approach-list{border-top:1px solid var(--line)}.approach-item{display:grid;grid-template-columns:80px 1fr;gap:22px;border-bottom:1px solid var(--line);padding:26px 0;transition:padding .25s var(--ease)}.approach-item:hover{padding-left:14px}.approach-num{font:11px var(--mono);color:var(--ochre)}.approach-item h3{font:500 20px var(--serif);margin:0 0 8px}.approach-item p{margin:0;max-width:500px;color:var(--muted);font-size:13px}
+    .material-section{padding-top:70px}.material-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:6vw;align-items:center}.material-photo{height:620px}.material-photo img{height:100%}.material-notes{position:relative}.material-notes h2{font:400 clamp(3rem,6vw,7rem)/.88 var(--serif);letter-spacing:-.06em;margin:0 0 32px}.material-notes h2 em{color:var(--ochre);font-style:italic}.material-notes p{color:var(--muted);max-width:320px}.swatches{display:flex;gap:10px;margin-top:44px}.swatch{width:76px;height:76px;border:1px solid rgba(36,38,34,.2);display:flex;align-items:end;padding:7px;font:9px var(--mono)}.s1{background:#bba58a}.s2{background:#8a4933;color:var(--white)}.s3{background:#2e302d;color:var(--white)}.s4{background:#d8c8af}
+    .contact{background:var(--ochre);color:var(--ink);padding:120px 4.5vw 50px}.contact-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:8vw;align-items:end}.contact h2{font:400 clamp(4rem,10vw,11rem)/.78 var(--serif);letter-spacing:-.08em;margin:0}.contact h2 em{font-style:italic}.contact-copy{max-width:300px;font-size:13px}.contact-copy p{margin-top:0}.contact-link{display:inline-flex;align-items:center;gap:14px;margin-top:24px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:7px}.contact-link span{font-size:17px;transition:transform .2s}.contact-link:hover span{transform:translateX(5px)}.footer{display:flex;justify-content:space-between;border-top:1px solid rgba(36,38,34,.35);margin-top:115px;padding-top:17px;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.is-visible{opacity:1;transform:none}
+    @media(max-width:800px){.site-header{padding:19px 6vw}.nav{display:none}.menu{display:block}.hero{display:block;padding:125px 6vw 85px}.hero h1{font-size:clamp(4.5rem,19vw,8rem);margin-bottom:30px}.hero-intro{margin:0 0 36px 9%;max-width:280px}.hero-photo{height:60vh}.mark{width:120px;height:120px;font-size:8px;right:-8px;bottom:5%}.mark:before{font-size:20px;top:15px}.mark span{padding-top:30px}.rule{margin:0 6vw}.section{padding:95px 6vw}.section-head{display:block;margin-bottom:45px}.section-head .kicker{margin-bottom:28px}.manifesto{display:block}.manifesto-copy{margin-bottom:32px}.projects{padding-bottom:100px}.project-grid{display:block}.project-card,.project-card:nth-child(n){margin:0 0 65px}.project-card:nth-child(even){margin-left:12%}.approach{display:block}.approach .kicker{margin-bottom:40px}.material-grid{display:block}.material-photo{height:62vh;margin-bottom:45px}.contact{padding:85px 6vw 35px}.contact-inner{display:block}.contact h2{font-size:clamp(4.4rem,18vw,8rem);margin-bottom:45px}.footer{margin-top:85px;gap:25px;flex-wrap:wrap}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.project-image img,.approach-item,.contact-link span{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="TALA home">TALA <span>architecture + landscape</span></a>
+    <nav class="nav" aria-label="Main navigation"><a href="#work">Selected work</a><a href="#approach">Approach</a><a href="#contact">Start a conversation</a></nav>
+    <button class="menu" type="button" aria-label="Open menu">Menu</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy reveal"><div class="eyebrow">Windhoek / Namibia / Est. 2016</div><h1>Built for<br>the <em>long</em><br>horizon.</h1><p class="hero-intro">TALA is an architecture and landscape practice working with climate, craft and the quiet intelligence of a place.</p></div>
+      <figure class="hero-photo reveal"><img src="hero.jpg" alt="Sculptural desert house beneath an acacia tree"><figcaption class="caption">House No. 08 — Khomas Highlands / 2024</figcaption></figure>
+      <div class="mark" aria-hidden="true"><span>FORM FOLLOWS<br>WEATHER<br>✦ TALA STUDIO ✦</span></div>
+    </section>
+
+    <hr class="rule">
+    <section class="section reveal">
+      <div class="section-head"><div class="kicker">01 — Position</div><h2 class="section-title">A practice for places that ask you to <em>slow down.</em></h2></div>
+      <div class="manifesto"><div class="manifesto-copy">We make <span>less</span> land.<br>More room for light,<br>air and living.</div><p class="manifesto-note"><strong>Our work begins outside the drawing.</strong><br><br>We look at sun paths, water lines, prevailing winds and the way a material will age. The building follows from there.</p></div>
+    </section>
+
+    <section id="work" class="section projects">
+      <div class="section-head reveal"><div class="kicker">02 — Selected work</div><h2 class="section-title">Four studies in <em>belonging.</em></h2></div>
+      <div class="project-grid">
+        <article class="project-card reveal"><div class="project-image"><img src="house.jpg" alt="Contemporary courtyard house in a dry landscape" loading="lazy"></div><div class="project-meta"><span>01 / Courtyard House</span><span>Khomas / 2024</span></div></article>
+        <article class="project-card reveal"><div class="project-image"><img src="interior.jpg" alt="Sunlit interior with low seating and rough stone" loading="lazy"></div><div class="project-meta"><span>02 / House of Shade</span><span>Windhoek / 2023</span></div></article>
+        <article class="project-card reveal"><div class="project-image"><img src="stair.jpg" alt="Concrete stairwell with circular skylight" loading="lazy"></div><div class="project-meta"><span>03 / Lightwell</span><span>Swakop / 2022</span></div></article>
+        <article class="project-card reveal"><div class="project-image"><img src="materials.jpg" alt="Tactile palette of stone, tile and linen" loading="lazy"></div><div class="project-meta"><span>04 / Material Library</span><span>Studio / Ongoing</span></div></article>
+      </div>
+    </section>
+
+    <section id="approach" class="section reveal"><div class="approach"><div class="kicker">03 — How we work</div><div class="approach-list">
+      <div class="approach-item"><div class="approach-num">01 / READ</div><div><h3>Start with the site.</h3><p>Before a line is drawn, we spend time with the weather, the ground and the daily rituals that already belong there.</p></div></div>
+      <div class="approach-item"><div class="approach-num">02 / EDIT</div><div><h3>Make only what is needed.</h3><p>We reduce the brief to its generous essentials, then find the smallest move that can hold the biggest feeling.</p></div></div>
+      <div class="approach-item"><div class="approach-num">03 / TUNE</div><div><h3>Design for the passing day.</h3><p>A room is never one room. It shifts with the sun, the season and the people who make it their own.</p></div></div>
+      <div class="approach-item"><div class="approach-num">04 / STAY</div><div><h3>Let materials tell time.</h3><p>We choose honest surfaces that weather well, gather memory and become more themselves with use.</p></div></div>
+    </div></div></section>
+
+    <section class="section material-section reveal"><div class="material-grid"><figure class="material-photo"><img src="materials.jpg" alt="Material studies arranged on a studio table" loading="lazy"></figure><div class="material-notes"><div class="kicker">04 — Material note</div><h2>Warmth is a<br><em>structural</em><br>decision.</h2><p>Sandstone, clay, linen, charcoal. A palette gathered from the landscape, never imposed over it.</p><div class="swatches"><div class="swatch s1">sand</div><div class="swatch s2">earth</div><div class="swatch s3">shade</div><div class="swatch s4">linen</div></div></div></div></section>
+
+    <section id="contact" class="contact"><div class="contact-inner"><h2 class="reveal">Have a<br><em>place</em> in mind?</h2><div class="contact-copy reveal"><p>Tell us where you are, what you are making and what you want the place to feel like when it is finished.</p><a class="contact-link" href="mailto:studio@tala.place">studio@tala.place <span>→</span></a></div></div><footer class="footer"><span>TALA / Architecture + Landscape</span><span>Windhoek — Namibia</span><span>© 2024</span></footer></section>
+  </main>
+  <script>
+    const progress = document.querySelector('.progress');
+    const updateProgress = () => { const max = document.documentElement.scrollHeight - innerHeight; progress.style.transform = `scaleX(${max ? scrollY / max : 0})`; };
+    addEventListener('scroll', updateProgress, {passive:true}); updateProgress();
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('is-visible'); }), {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelector('.menu').addEventListener('click', () => { const nav = document.querySelector('.nav'); const open = nav.dataset.open === 'true'; nav.dataset.open = String(!open); nav.style.display = open ? '' : 'flex'; nav.style.position = 'absolute'; nav.style.top = '58px'; nav.style.right = '6vw'; nav.style.flexDirection = 'column'; nav.style.alignItems = 'flex-end'; nav.style.gap = '14px'; });
+  </script>
+</body>
+</html>
